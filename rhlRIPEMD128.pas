@@ -1,0 +1,306 @@
+unit rhlRIPEMD128;
+
+interface
+
+uses
+  rhlMDBase;
+
+type
+
+  { TrhlRIPEMD128 }
+
+  TrhlRIPEMD128 = class(TrhlMDBase)
+  protected
+    procedure UpdateBlock(const AData); override;
+  end;
+
+implementation
+
+{ TrhlRIPEMD128 }
+
+procedure TrhlRIPEMD128.UpdateBlock(const AData);
+var
+  data: array[0..15] of DWord absolute AData;
+  a, b, c, d, aa, bb, cc, dd: DWord;
+begin
+  a := FH[0];
+  b := FH[1];
+  c := FH[2];
+  d := FH[3];
+  aa := a;
+  bb := b;
+  cc := c;
+  dd := d;
+
+  Inc(a, data[0] + (b xor c xor d));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[1] + (a xor b xor c));
+  d := (d shl 14) or (d shr (32 - 14));
+  Inc(c, data[2] + (d xor a xor b));
+  c := (c shl 15) or (c shr (32 - 15));
+  Inc(b, data[3] + (c xor d xor a));
+  b := (b shl 12) or (b shr (32 - 12));
+  Inc(a, data[4] + (b xor c xor d));
+  a := (a shl 5) or (a shr (32 - 5));
+  Inc(d, data[5] + (a xor b xor c));
+  d := (d shl 8) or (d shr (32 - 8));
+  Inc(c, data[6] + (d xor a xor b));
+  c := (c shl 7) or (c shr (32 - 7));
+  Inc(b, data[7] + (c xor d xor a));
+  b := (b shl 9) or (b shr (32 - 9));
+  Inc(a, data[8] + (b xor c xor d));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[9] + (a xor b xor c));
+  d := (d shl 13) or (d shr (32 - 13));
+  Inc(c, data[10] + (d xor a xor b));
+  c := (c shl 14) or (c shr (32 - 14));
+  Inc(b, data[11] + (c xor d xor a));
+  b := (b shl 15) or (b shr (32 - 15));
+  Inc(a, data[12] + (b xor c xor d));
+  a := (a shl 6) or (a shr (32 - 6));
+  Inc(d, data[13] + (a xor b xor c));
+  d := (d shl 7) or (d shr (32 - 7));
+  Inc(c, data[14] + (d xor a xor b));
+  c := (c shl 9) or (c shr (32 - 9));
+  Inc(b, data[15] + (c xor d xor a));
+  b := (b shl 8) or (b shr (32 - 8));
+
+  Inc(a, data[7] + FC[2] + ((b and c) or (not b and d)));
+  a := (a shl 7) or (a shr (32 - 7));
+  Inc(d, data[4] + FC[2] + ((a and b) or (not a and c)));
+  d := (d shl 6) or (d shr (32 - 6));
+  Inc(c, data[13] + FC[2] + ((d and a) or (not d and b)));
+  c := (c shl 8) or (c shr (32 - 8));
+  Inc(b, data[1] + FC[2] + ((c and d) or (not c and a)));
+  b := (b shl 13) or (b shr (32 - 13));
+  Inc(a, data[10] + FC[2] + ((b and c) or (not b and d)));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[6] + FC[2] + ((a and b) or (not a and c)));
+  d := (d shl 9) or (d shr (32 - 9));
+  Inc(c, data[15] + FC[2] + ((d and a) or (not d and b)));
+  c := (c shl 7) or (c shr (32 - 7));
+  Inc(b, data[3] + FC[2] + ((c and d) or (not c and a)));
+  b := (b shl 15) or (b shr (32 - 15));
+  Inc(a, data[12] + FC[2] + ((b and c) or (not b and d)));
+  a := (a shl 7) or (a shr (32 - 7));
+  Inc(d, data[0] + FC[2] + ((a and b) or (not a and c)));
+  d := (d shl 12) or (d shr (32 - 12));
+  Inc(c, data[9] + FC[2] + ((d and a) or (not d and b)));
+  c := (c shl 15) or (c shr (32 - 15));
+  Inc(b, data[5] + FC[2] + ((c and d) or (not c and a)));
+  b := (b shl 9) or (b shr (32 - 9));
+  Inc(a, data[2] + FC[2] + ((b and c) or (not b and d)));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[14] + FC[2] + ((a and b) or (not a and c)));
+  d := (d shl 7) or (d shr (32 - 7));
+  Inc(c, data[11] + FC[2] + ((d and a) or (not d and b)));
+  c := (c shl 13) or (c shr (32 - 13));
+  Inc(b, data[8] + FC[2] + ((c and d) or (not c and a)));
+  b := (b shl 12) or (b shr (32 - 12));
+
+  Inc(a, data[3] + FC[4] + ((b or not c) xor d));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[10] + FC[4] + ((a or not b) xor c));
+  d := (d shl 13) or (d shr (32 - 13));
+  Inc(c, data[14] + FC[4] + ((d or not a) xor b));
+  c := (c shl 6) or (c shr (32 - 6));
+  Inc(b, data[4] + FC[4] + ((c or not d) xor a));
+  b := (b shl 7) or (b shr (32 - 7));
+  Inc(a, data[9] + FC[4] + ((b or not c) xor d));
+  a := (a shl 14) or (a shr (32 - 14));
+  Inc(d, data[15] + FC[4] + ((a or not b) xor c));
+  d := (d shl 9) or (d shr (32 - 9));
+  Inc(c, data[8] + FC[4] + ((d or not a) xor b));
+  c := (c shl 13) or (c shr (32 - 13));
+  Inc(b, data[1] + FC[4] + ((c or not d) xor a));
+  b := (b shl 15) or (b shr (32 - 15));
+  Inc(a, data[2] + FC[4] + ((b or not c) xor d));
+  a := (a shl 14) or (a shr (32 - 14));
+  Inc(d, data[7] + FC[4] + ((a or not b) xor c));
+  d := (d shl 8) or (d shr (32 - 8));
+  Inc(c, data[0] + FC[4] + ((d or not a) xor b));
+  c := (c shl 13) or (c shr (32 - 13));
+  Inc(b, data[6] + FC[4] + ((c or not d) xor a));
+  b := (b shl 6) or (b shr (32 - 6));
+  Inc(a, data[13] + FC[4] + ((b or not c) xor d));
+  a := (a shl 5) or (a shr (32 - 5));
+  Inc(d, data[11] + FC[4] + ((a or not b) xor c));
+  d := (d shl 12) or (d shr (32 - 12));
+  Inc(c, data[5] + FC[4] + ((d or not a) xor b));
+  c := (c shl 7) or (c shr (32 - 7));
+  Inc(b, data[12] + FC[4] + ((c or not d) xor a));
+  b := (b shl 5) or (b shr (32 - 5));
+
+  Inc(a, data[1] + FC[6] + ((b and d) or (c and not d)));
+  a := (a shl 11) or (a shr (32 - 11));
+  Inc(d, data[9] + FC[6] + ((a and c) or (b and not c)));
+  d  := (d  shl 12) or (d shr (32 - 12));
+  Inc(c, data[11] + FC[6] + ((d and b) or (a and not b)));
+  c  := (c  shl 14) or (c shr (32 - 14));
+  Inc(b, data[10] + FC[6] + ((c and a) or (d and not a)));
+  b  := (b  shl 15) or (b shr (32 - 15));
+  Inc(a, data[0] + FC[6] + ((b and d) or (c and not d)));
+  a  := (a  shl 14) or (a shr (32 - 14));
+  Inc(d, data[8] + FC[6] + ((a and c) or (b and not c)));
+  d  := (d  shl 15) or (d shr (32 - 15));
+  Inc(c, data[12] + FC[6] + ((d and b) or (a and not b)));
+  c  := (c  shl 9) or (c shr (32 - 9));
+  Inc(b, data[4] + FC[6] + ((c and a) or (d and not a)));
+  b  := (b  shl 8) or (b shr (32 - 8));
+  Inc(a, data[13] + FC[6] + ((b and d) or (c and not d)));
+  a  := (a  shl 9) or (a shr (32 - 9));
+  Inc(d, data[3] + FC[6] + ((a and c) or (b and not c)));
+  d  := (d  shl 14) or (d shr (32 - 14));
+  Inc(c, data[7] + FC[6] + ((d and b) or (a and not b)));
+  c  := (c  shl 5) or (c shr (32 - 5));
+  Inc(b, data[15] + FC[6] + ((c and a) or (d and not a)));
+  b  := (b  shl 6) or (b shr (32 - 6));
+  Inc(a, data[14] + FC[6] + ((b and d) or (c and not d)));
+  a  := (a  shl 8) or (a shr (32 - 8));
+  Inc(d, data[5] + FC[6] + ((a and c) or (b and not c)));
+  d  := (d  shl 6) or (d shr (32 - 6));
+  Inc(c, data[6] + FC[6] + ((d and b) or (a and not b)));
+  c  := (c  shl 5) or (c shr (32 - 5));
+  Inc(b, data[2] + FC[6] + ((c and a) or (d and not a)));
+  b  := (b  shl 12) or (b shr (32 - 12));
+
+  Inc(aa, data[5] + FC[1] + ((bb and dd) or (cc and not dd)));
+  aa := (aa shl 8) or (aa shr (32 - 8));
+  Inc(dd, data[14] + FC[1] + ((aa and cc) or (bb and not cc)));
+  dd := (dd shl 9) or (dd shr (32 - 9));
+  Inc(cc, data[7] + FC[1] + ((dd and bb) or (aa and not bb)));
+  cc := (cc shl 9) or (cc shr (32 - 9));
+  Inc(bb, data[0] + FC[1] + ((cc and aa) or (dd and not aa)));
+  bb := (bb shl 11) or (bb shr (32 - 11));
+  Inc(aa, data[9] + FC[1] + ((bb and dd) or (cc and not dd)));
+  aa  := (aa  shl 13) or (aa shr (32 - 13));
+  Inc(dd, data[2] + FC[1] + ((aa and cc) or (bb and not cc)));
+  dd  := (dd  shl 15) or (dd shr (32 - 15));
+  Inc(cc, data[11] + FC[1] + ((dd and bb) or (aa and not bb)));
+  cc  := (cc  shl 15) or (cc shr (32 - 15));
+  Inc(bb, data[4] + FC[1] + ((cc and aa) or (dd and not aa)));
+  bb  := (bb  shl 5) or (bb shr (32 - 5));
+  Inc(aa, data[13] + FC[1] + ((bb and dd) or (cc and not dd)));
+  aa  := (aa  shl 7) or (aa shr (32 - 7));
+  Inc(dd, data[6] + FC[1] + ((aa and cc) or (bb and not cc)));
+  dd  := (dd  shl 7) or (dd shr (32 - 7));
+  Inc(cc, data[15] + FC[1] + ((dd and bb) or (aa and not bb)));
+  cc  := (cc  shl 8) or (cc shr (32 - 8));
+  Inc(bb, data[8] + FC[1] + ((cc and aa) or (dd and not aa)));
+  bb  := (bb  shl 11) or (bb shr (32 - 11));
+  Inc(aa, data[1] + FC[1] + ((bb and dd) or (cc and not dd)));
+  aa  := (aa  shl 14) or (aa shr (32 - 14));
+  Inc(dd, data[10] + FC[1] + ((aa and cc) or (bb and not cc)));
+  dd  := (dd  shl 14) or (dd shr (32 - 14));
+  Inc(cc, data[3] + FC[1] + ((dd and bb) or (aa and not bb)));
+  cc  := (cc  shl 12) or (cc shr (32 - 12));
+  Inc(bb, data[12] + FC[1] + ((cc and aa) or (dd and not aa)));
+  bb  := (bb  shl 6) or (bb shr (32 - 6));
+
+  Inc(aa, data[6] + FC[3] + ((bb or not cc) xor dd));
+  aa := (aa shl 9) or (aa shr (32 - 9));
+  Inc(dd, data[11] + FC[3] + ((aa or not bb) xor cc));
+  dd := (dd shl 13) or (dd shr (32 - 13));
+  Inc(cc, data[3] + FC[3] + ((dd or not aa) xor bb));
+  cc := (cc shl 15) or (cc shr (32 - 15));
+  Inc(bb, data[7] + FC[3] + ((cc or not dd) xor aa));
+  bb := (bb shl 7) or (bb shr (32 - 7));
+  Inc(aa, data[0] + FC[3] + ((bb or not cc) xor dd));
+  aa := (aa shl 12) or (aa shr (32 - 12));
+  Inc(dd, data[13] + FC[3] + ((aa or not bb) xor cc));
+  dd := (dd shl 8) or (dd shr (32 - 8));
+  Inc(cc, data[5] + FC[3] + ((dd or not aa) xor bb));
+  cc := (cc shl 9) or (cc shr (32 - 9));
+  Inc(bb, data[10] + FC[3] + ((cc or not dd) xor aa));
+  bb := (bb shl 11) or (bb shr (32 - 11));
+  Inc(aa, data[14] + FC[3] + ((bb or not cc) xor dd));
+  aa := (aa shl 7) or (aa shr (32 - 7));
+  Inc(dd, data[15] + FC[3] + ((aa or not bb) xor cc));
+  dd := (dd shl 7) or (dd shr (32 - 7));
+  Inc(cc, data[8] + FC[3] + ((dd or not aa) xor bb));
+  cc := (cc shl 12) or (cc shr (32 - 12));
+  Inc(bb, data[12] + FC[3] + ((cc or not dd) xor aa));
+  bb := (bb shl 7) or (bb shr (32 - 7));
+  Inc(aa, data[4] + FC[3] + ((bb or not cc) xor dd));
+  aa := (aa shl 6) or (aa shr (32 - 6));
+  Inc(dd, data[9] + FC[3] + ((aa or not bb) xor cc));
+  dd := (dd shl 15) or (dd shr (32 - 15));
+  Inc(cc, data[1] + FC[3] + ((dd or not aa) xor bb));
+  cc := (cc shl 13) or (cc shr (32 - 13));
+  Inc(bb, data[2] + FC[3] + ((cc or not dd) xor aa));
+  bb := (bb shl 11) or (bb shr (32 - 11));
+
+  Inc(aa, data[15] + FC[5] + ((bb and cc) or (not bb and dd)));
+  aa := (aa shl 9) or (aa shr (32 - 9));
+  Inc(dd, data[5]+ FC[5] + ((aa and bb) or (not aa and cc)));
+  dd := (dd shl 7) or (dd shr (32 - 7));
+  Inc(cc, data[1]+ FC[5] + ((dd and aa) or (not dd and bb)));
+  cc := (cc shl 15) or (cc shr (32 - 15));
+  Inc(bb, data[3]+ FC[5] + ((cc and dd) or (not cc and aa)));
+  bb := (bb shl 11) or (bb shr (32 - 11));
+  Inc(aa, data[7] + FC[5] + ((bb and cc) or (not bb and dd)));
+  aa := (aa shl 8) or (aa shr (32 - 8));
+  Inc(dd, data[14] + FC[5] + ((aa and bb) or (not aa and cc)));
+  dd := (dd shl 6) or (dd shr (32 - 6));
+  Inc(cc, data[6] + FC[5] + ((dd and aa) or (not dd and bb)));
+  cc := (cc shl 6) or (cc shr (32 - 6));
+  Inc(bb, data[9]+ FC[5] + ((cc and dd) or (not cc and aa)));
+  bb := (bb shl 14) or (bb shr (32 - 14));
+  Inc(aa, data[11] + FC[5] + ((bb and cc) or (not bb and dd)));
+  aa := (aa shl 12) or (aa shr (32 - 12));
+  Inc(dd, data[8]+ FC[5] + ((aa and bb) or (not aa and cc)));
+  dd := (dd shl 13) or (dd shr (32 - 13));
+  Inc(cc, data[12] + FC[5] + ((dd and aa) or (not dd and bb)));
+  cc := (cc shl 5) or (cc shr (32 - 5));
+  Inc(bb, data[2]+ FC[5] + ((cc and dd) or (not cc and aa)));
+  bb := (bb shl 14) or (bb shr (32 - 14));
+  Inc(aa, data[10] + FC[5] + ((bb and cc) or (not bb and dd)));
+  aa := (aa shl 13) or (aa shr (32 - 13));
+  Inc(dd, data[0] + FC[5] + ((aa and bb) or (not aa and cc)));
+  dd := (dd shl 13) or (dd shr (32 - 13));
+  Inc(cc, data[4] + FC[5] + ((dd and aa) or (not dd and bb)));
+  cc := (cc shl 7) or (cc shr (32 - 7));
+  Inc(bb, data[13] + FC[5] + ((cc and dd) or (not cc and aa)));
+  bb := (bb shl 5) or (bb shr (32 - 5));
+
+  Inc(aa, data[8] + (bb xor cc xor dd));
+  aa := (aa shl 15) or (aa shr (32 - 15));
+  Inc(dd, data[6] + (aa xor bb xor cc));
+  dd := (dd shl 5) or (dd shr (32 - 5));
+  Inc(cc, data[4] + (dd xor aa xor bb));
+  cc := (cc shl 8) or (cc shr (32 - 8));
+  Inc(bb, data[1]+ (cc xor dd xor aa));
+  bb := (bb shl 11) or (bb shr (32 - 11));
+  Inc(aa, data[3] + (bb xor cc xor dd));
+  aa := (aa shl 14) or (aa shr (32 - 14));
+  Inc(dd, data[11] + (aa xor bb xor cc));
+  dd := (dd shl 14) or (dd shr (32 - 14));
+  Inc(cc, data[15] + (dd xor aa xor bb));
+  cc := (cc shl 6) or (cc shr (32 - 6));
+  Inc(bb, data[0]+ (cc xor dd xor aa));
+  bb := (bb shl 14) or (bb shr (32 - 14));
+  Inc(aa, data[5] + (bb xor cc xor dd));
+  aa := (aa shl 6) or (aa shr (32 - 6));
+  Inc(dd, data[12] + (aa xor bb xor cc));
+  dd := (dd shl 9) or (dd shr (32 - 9));
+  Inc(cc, data[2] + (dd xor aa xor bb));
+  cc := (cc shl 12) or (cc shr (32 - 12));
+  Inc(bb, data[13] + (cc xor dd xor aa));
+  bb := (bb shl 9) or (bb shr (32 - 9));
+  Inc(aa, data[9]+ (bb xor cc xor dd));
+  aa := (aa shl 12) or (aa shr (32 - 12));
+  Inc(dd, data[7]+ (aa xor bb xor cc));
+  dd := (dd shl 5) or (dd shr (32 - 5));
+  Inc(cc, data[10] + (dd xor aa xor bb));
+  cc := (cc shl 15) or (cc shr (32 - 15));
+  Inc(bb, data[14] + (cc xor dd xor aa));
+  bb := (bb shl 8) or (bb shr (32 - 8));
+
+  Inc(dd, c + FH[1]);
+  FH[1] := FH[2] + d + aa;
+  FH[2] := FH[3] + a + bb;
+  FH[3] := FH[0] + b + cc;
+  FH[0] := dd;
+end;
+
+end.
