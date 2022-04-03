@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <Package Version="5">
+    <Name Value="rhl_package"/>
+    <Type Value="RunAndDesignTime"/>
+    <Author Value="Maciej Kaczkowski"/>
+    <CompilerOptions>
+      <Version Value="11"/>
+      <SearchPaths>
+        <UnitOutputDirectory Value="lib/$(TargetCPU)-$(TargetOS)/"/>
+      </SearchPaths>
+    </CompilerOptions>
+    <Description Value="Free Pascal translation of HashLib (written in C#) with custom modifications."/>
+    <License Value="N/A"/>
+    <Version Major="16" Minor="7"/>
+    <Files>
+      <Item>
+        <Filename Value="rhlAdler32.pas"/>
+        <UnitName Value="rhlAdler32"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlAP.pas"/>
+        <UnitName Value="rhlAP"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlBernstein.pas"/>
+        <UnitName Value="rhlBernstein"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlBernstein1.pas"/>
+        <UnitName Value="rhlBernstein1"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlBKDR.pas"/>
+        <UnitName Value="rhlBKDR"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlCore.pas"/>
+        <UnitName Value="rhlCore"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlCRC32.pas"/>
+        <UnitName Value="rhlCRC32"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlCRC64.pas"/>
+        <UnitName Value="rhlCRC64"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlDEK.pas"/>
+        <UnitName Value="rhlDEK"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlDJB.pas"/>
+        <UnitName Value="rhlDJB"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlELF.pas"/>
+        <UnitName Value="rhlELF"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlFNV.pas"/>
+        <UnitName Value="rhlFNV"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlFNV1a.pas"/>
+        <UnitName Value="rhlFNV1a"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlFNV1a64.pas"/>
+        <UnitName Value="rhlFNV1a64"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlFNV64.pas"/>
+        <UnitName Value="rhlFNV64"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlGost.pas"/>
+        <UnitName Value="rhlGost"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlGostBase.pas"/>
+        <UnitName Value="rhlGostBase"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlGostCryptoPro.pas"/>
+        <UnitName Value="rhlGostCryptoPro"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlGrindahl256.pas"/>
+        <UnitName Value="rhlGrindahl256"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlGrindahl512.pas"/>
+        <UnitName Value="rhlGrindahl512"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAS160.pas"/>
+        <UnitName Value="rhlHAS160"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL.pas"/>
+        <UnitName Value="rhlHAVAL"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL128.pas"/>
+        <UnitName Value="rhlHAVAL128"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL160.pas"/>
+        <UnitName Value="rhlHAVAL160"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL192.pas"/>
+        <UnitName Value="rhlHAVAL192"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL224.pas"/>
+        <UnitName Value="rhlHAVAL224"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlHAVAL256.pas"/>
+        <UnitName Value="rhlHAVAL256"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlJenkins3.pas"/>
+        <UnitName Value="rhlJenkins3"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlJS.pas"/>
+        <UnitName Value="rhlJS"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlKeccak.pas"/>
+        <UnitName Value="rhlKeccak"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMD2.pas"/>
+        <UnitName Value="rhlMD2"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMD4.pas"/>
+        <UnitName Value="rhlMD4"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMD5.pas"/>
+        <UnitName Value="rhlMD5"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMDBase.pas"/>
+        <UnitName Value="rhlMDBase"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMurmur2.pas"/>
+        <UnitName Value="rhlMurmur2"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMurmur2_64.pas"/>
+        <UnitName Value="rhlMurmur2_64"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMurmur3.pas"/>
+        <UnitName Value="rhlMurmur3"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlMurmur3_128.pas"/>
+        <UnitName Value="rhlMurmur3_128"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlOneAtTime.pas"/>
+        <UnitName Value="rhlOneAtTime"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlPanama.pas"/>
+        <UnitName Value="rhlPanama"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlPJW.pas"/>
+        <UnitName Value="rhlPJW"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRadioGatun32.pas"/>
+        <UnitName Value="rhlRadioGatun32"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRadioGatun64.pas"/>
+        <UnitName Value="rhlRadioGatun64"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRIPEMD.pas"/>
+        <UnitName Value="rhlRIPEMD"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRIPEMD128.pas"/>
+        <UnitName Value="rhlRIPEMD128"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRIPEMD160.pas"/>
+        <UnitName Value="rhlRIPEMD160"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRIPEMD256.pas"/>
+        <UnitName Value="rhlRIPEMD256"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRIPEMD320.pas"/>
+        <UnitName Value="rhlRIPEMD320"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRotating.pas"/>
+        <UnitName Value="rhlRotating"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlRS.pas"/>
+        <UnitName Value="rhlRS"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSDBM.pas"/>
+        <UnitName Value="rhlSDBM"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA0.pas"/>
+        <UnitName Value="rhlSHA0"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA1.pas"/>
+        <UnitName Value="rhlSHA1"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA224.pas"/>
+        <UnitName Value="rhlSHA224"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA256.pas"/>
+        <UnitName Value="rhlSHA256"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA256Base.pas"/>
+        <UnitName Value="rhlSHA256Base"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA384.pas"/>
+        <UnitName Value="rhlSHA384"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA512.pas"/>
+        <UnitName Value="rhlSHA512"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA512_224.pas"/>
+        <UnitName Value="rhlSHA512_224"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA512_256.pas"/>
+        <UnitName Value="rhlSHA512_256"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSHA512Base.pas"/>
+        <UnitName Value="rhlSHA512Base"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlShiftAndXor.pas"/>
+        <UnitName Value="rhlShiftAndXor"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSipHash.pas"/>
+        <UnitName Value="rhlSipHash"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSnefru.pas"/>
+        <UnitName Value="rhlSnefru"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlSuperFast.pas"/>
+        <UnitName Value="rhlSuperFast"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlTests.pas"/>
+        <UnitName Value="rhlTests"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlTiger.pas"/>
+        <UnitName Value="rhlTiger"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlTiger2.pas"/>
+        <UnitName Value="rhlTiger2"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlTMDPA.pas"/>
+        <UnitName Value="rhlTMDPA"/>
+      </Item>
+      <Item>
+        <Filename Value="rhlWhirlpool.pas"/>
+        <UnitName Value="rhlWhirlpool"/>
+      </Item>
+    </Files>
+    <RequiredPkgs>
+      <Item>
+        <PackageName Value="FCL"/>
+      </Item>
+    </RequiredPkgs>
+    <UsageOptions>
+      <UnitPath Value="$(PkgOutDir)"/>
+    </UsageOptions>
+    <PublishOptions>
+      <Version Value="2"/>
+      <UseFileFilters Value="True"/>
+    </PublishOptions>
+  </Package>
+</CONFIG>
